@@ -8,21 +8,26 @@ import { increment, decrement, reset } from '../counter/counter.actions';
   templateUrl: './my-counter.component.html',
 })
 export class MyCounterComponent {
-  counter$: Observable<{ count: number }>;
+  counter$: Observable<{
+    count: number;
+    actionName: string;
+  }>;
 
-  constructor(private store: Store<{ counter: { count: number } }>) {
+  constructor(
+    private store: Store<{ counter: { count: number; actionName: string } }>,
+  ) {
     this.counter$ = store.pipe(select('counter'));
   }
 
   increment() {
-    this.store.dispatch(increment());
+    this.store.dispatch(increment({ actionName: 'increment' }));
   }
 
   decrement() {
-    this.store.dispatch(decrement());
+    this.store.dispatch(decrement({ actionName: 'decrement' }));
   }
 
   reset() {
-    this.store.dispatch(reset());
+    this.store.dispatch(reset({ actionName: 'reset' }));
   }
 }
