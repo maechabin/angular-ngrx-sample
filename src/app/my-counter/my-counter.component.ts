@@ -8,7 +8,7 @@ import { increment, decrement, reset } from '../counter/counter.actions';
   templateUrl: './my-counter.component.html',
 })
 export class MyCounterComponent {
-  counter$: Observable<{
+  readonly counter$: Observable<{
     count: number;
     actionName: string;
   }>;
