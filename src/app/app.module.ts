@@ -16,7 +16,7 @@ import { MyCounterComponent } from './my-counter/my-counter.component';
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({
-      count: counterReducer,
+      counter: counterReducer,
     }),
     // StoreModule.forRoot(reducers, {
     //   metaReducers,
